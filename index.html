@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS Prototype</title>
+  <link rel="stylesheet" href="./styles/css/bootstrap.min.css">
+  <script src="./script/angular.min.js"></script>
+  <script src="./script/app.js"></script>
+  <script src="./script/clientsCtrl.js"></script>
+</head>
+<body>
+ <div class="container" ng-app="clientsApp" ng-controller='clientsCtrl'>
+  <div class="page-header">
+    <h1>Clients</h1>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Percentage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="client in clients">
+        <td>{{ client.id }}</td>
+        <td>{{ client.name }}</td>
+        <td>{{ client.age }}</td>
+        <td>{{ client.percentage }}</td>
+      </tr>
+    </tbody>
+  </table>
+ </div>
+</body>
+</html>
