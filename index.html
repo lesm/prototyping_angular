@@ -27,7 +27,7 @@
         <td>{{ client.id }}</td>
         <td>{{ client.name }}</td>
         <td>{{ client.age }}</td>
-        <td>{{ client.percentage }}</td>
+        <td>{{ percentageOf(client.percentage) | number:0 }} %</td>
       </tr>
     </tbody>
   </table>

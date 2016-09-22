@@ -8,3 +8,5 @@ angular
       { id: 4,  name: 'James',   age: 18,  percentage: 0.32 }
       { id: 5,  name: 'Javier',  age: 47,  percentage: 0.14 }
     ]
+    $scope.percentageOf = (percentage) ->
+      percentage * 100
