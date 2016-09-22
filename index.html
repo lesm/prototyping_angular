@@ -20,6 +20,7 @@
         <th>Name</th>
         <th>Age</th>
         <th>Percentage</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -28,6 +29,11 @@
         <td>{{ client.name }}</td>
         <td>{{ client.age }}</td>
         <td>{{ percentageOf(client.percentage) | number:0 }} %</td>
+        <td>
+          <a class="btn btn-danger" href="" ng-click='delete(client)'>
+            Delete
+          </a>
+        </td>
       </tr>
     </tbody>
   </table>

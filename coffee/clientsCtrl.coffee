@@ -10,3 +10,7 @@ angular
     ]
     $scope.percentageOf = (percentage) ->
       percentage * 100
+
+    $scope.delete = (client) ->
+      index = $scope.clients.indexOf(client)
+      $scope.clients.splice(index,1)

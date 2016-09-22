@@ -29,8 +29,13 @@
         percentage: 0.14
       }
     ];
-    return $scope.percentageOf = function(percentage) {
+    $scope.percentageOf = function(percentage) {
       return percentage * 100;
+    };
+    return $scope["delete"] = function(client) {
+      var index;
+      index = $scope.clients.indexOf(client);
+      return $scope.clients.splice(index, 1);
     };
   });
 
