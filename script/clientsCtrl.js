@@ -32,10 +32,15 @@
     $scope.percentageOf = function(percentage) {
       return percentage * 100;
     };
-    return $scope["delete"] = function(client) {
+    $scope["delete"] = function(client) {
       var index;
       index = $scope.clients.indexOf(client);
       return $scope.clients.splice(index, 1);
+    };
+    return $scope.create = function() {
+      $scope.newClient.id = $scope.clients.length + 1;
+      $scope.clients.push($scope.newClient);
+      return $scope.newClient = null;
     };
   });
 

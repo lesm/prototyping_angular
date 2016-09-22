@@ -14,3 +14,8 @@ angular
     $scope.delete = (client) ->
       index = $scope.clients.indexOf(client)
       $scope.clients.splice(index,1)
+    
+    $scope.create = ->
+      $scope.newClient.id = $scope.clients.length + 1
+      $scope.clients.push($scope.newClient)
+      $scope.newClient = null
