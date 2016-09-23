@@ -32,6 +32,12 @@
     $scope.percentageOf = function(percentage) {
       return percentage * 100;
     };
+    $scope.edit = function(client) {
+      return $scope.activeClient = client;
+    };
+    $scope.update = function(client) {
+      return $scope.activeClient = null;
+    };
     $scope["delete"] = function(client) {
       var index;
       index = $scope.clients.indexOf(client);

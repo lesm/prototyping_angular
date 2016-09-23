@@ -23,15 +23,29 @@
         <th>Action</th>
       </tr>
     </thead>
-    <tbody>
-      <tr ng-repeat="client in clients">
+    <tbody ng-repeat="client in clients">
+      <tr ng-if='client != activeClient'>
         <td>{{ client.id }}</td>
         <td>{{ client.name }}</td>
         <td>{{ client.age }}</td>
         <td>{{ percentageOf(client.percentage) | number:0 }} %</td>
         <td>
+          <a class="btn btn-primary" href="" ng-click='edit(client)'>
+            Edit
+          </a>
           <a class="btn btn-danger" href="" ng-click='delete(client)'>
             Delete
+          </a>
+        </td>
+      </tr>
+      <tr ng-if='client == activeClient'>
+        <td>{{ client.id }}</td>
+        <td><input class="form-control" ng-model='client.name' type="text"></td>
+        <td><input class="form-control" ng-model='client.age' type="text"></td>
+        <td><input class="form-control" ng-model='client.percentage' type="text"></td>
+        <td>
+          <a class="btn btn-primary" href="" ng-click='update(client)'>
+            Update
           </a>
         </td>
       </tr>
