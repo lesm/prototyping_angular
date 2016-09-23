@@ -1,27 +1,26 @@
 angular
   .module 'clientsApp'
-  .controller 'clientsCtrl', ($scope) ->
-    $scope.clients = [
-      { id: 1,  name: 'John',    age: 25,  percentage: 0.3 }
-      { id: 2,  name: 'Jane',    age: 39,  percentage: 0.18 }
-      { id: 3,  name: 'Jude',    age: 51,  percentage: 0.54 }
-      { id: 4,  name: 'James',   age: 18,  percentage: 0.32 }
-      { id: 5,  name: 'Javier',  age: 47,  percentage: 0.14 }
-    ]
+  .controller 'ClientsCtrl', ($scope, Clients) ->
+    $scope.clients = []
     $scope.percentageOf = (percentage) ->
       percentage * 100
+
+    Clients.all().success (data) ->
+      $scope.clients = data
+
+    $scope.create = ->
+      Clients.create($scope.newClient).success (data) ->
+        $scope.clients.push(data)
+        $scope.newClient = null
 
     $scope.edit = (client) ->
       $scope.activeClient = client
 
     $scope.update = (client) ->
-      $scope.activeClient = null
+      Clients.update(client).success (data) ->
+        $scope.activeClient = null
 
     $scope.delete = (client) ->
-      index = $scope.clients.indexOf(client)
-      $scope.clients.splice(index,1)
-    
-    $scope.create = ->
-      $scope.newClient.id = $scope.clients.length + 1
-      $scope.clients.push($scope.newClient)
-      $scope.newClient = null
+      Clients.delete(client.id).success (data) ->
+        index = $scope.clients.indexOf(client)
+        $scope.clients.splice(index,1)
