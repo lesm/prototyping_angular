@@ -37,20 +37,27 @@
       </tr>
     </tbody>
   </table>
-  <form role"form">
+  <form name='clientForm' novalidate role"form">
     <div class="form-group">
       <label for="name">Name:</label>
-      <input class="form-control" ng-model='newClient.name' type="text">
+      <input class="form-control" ng-model='newClient.name' name='name' type="text" required>
+      <span class='help-block' ng-show='clientForm.name.$error.required'>Name is required</span>
     </div>
     <div class="form-group">
       <label for="age">Age</label>
-      <input class="form-control" ng-model='newClient.age' type="number">
+      <input class="form-control" ng-model='newClient.age' name='age' type="number" required max='100' min='1'>
+      <span class="help-block" ng-show='clientForm.age.$error.required'>Age is required</span>
+      <span class="help-block" ng-show='clientForm.age.$error.min'>Age should be greater that 1</span>
+      <span class="help-block" ng-show='clientForm.age.$error.max'>Age should be lesser that 100</span>
     </div>
     <div class="form-group">
       <label for="percentage">Percentage</label>
-      <input class="form-control" ng-model='newClient.percentage' type="number">
+      <input class="form-control" ng-model='newClient.percentage' name='percentage' type="number" required max='1' min='0'>
+      <span class="help-block" ng-show='clientForm.percentage.$error.required'>Percentage is required</span>
+      <span class="help-block" ng-show='clientForm.percentage.$error.min'>Percentage should be greater that 0</span>
+      <span class="help-block" ng-show='clientForm.percentage.$error.max'>Percentage should be lesser that 0</span>
     </div>
-    <button class='btn btn-primary' ng-click='create()'>
+    <button class='btn btn-primary' ng-click='create()' ng-disabled='clientForm.$invalid'>
       Save
     </button>
   </form>
