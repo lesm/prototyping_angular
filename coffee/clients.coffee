@@ -1,6 +1,6 @@
 angular
   .module 'clientsApp'
-  .factory 'Clients', ($http, $log) ->
+  .factory 'Clients', ($http) ->
     BASE_URL = 'http://localhost:3005/clients'
     {
       all: ->
