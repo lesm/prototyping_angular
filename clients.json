@@ -2,13 +2,13 @@
   "clients": [
     {
       "id": 3,
-      "name": "Jude",
-      "age": 50,
+      "name": "Judee",
+      "age": 55,
       "percentage": 0.54
     },
     {
       "id": 4,
-      "name": "James",
+      "name": "Jamese",
       "age": 18,
       "percentage": 0.32
     },
@@ -21,7 +21,7 @@
     {
       "name": "luis",
       "age": 23,
-      "percentage": 0.3,
+      "percentage": "0.35",
       "id": 6
     }
   ]
