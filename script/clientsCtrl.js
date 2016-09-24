@@ -2,9 +2,6 @@
 (function() {
   angular.module('clientsApp').controller('ClientsCtrl', function($scope, Clients) {
     $scope.clients = [];
-    $scope.percentageOf = function(percentage) {
-      return percentage * 100;
-    };
     Clients.all().success(function(data) {
       return $scope.clients = data;
     });

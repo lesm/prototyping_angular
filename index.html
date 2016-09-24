@@ -9,6 +9,7 @@
   <script src="./script/clientsCtrl.js"></script>
   <script src="./script/clients.js"></script>
   <script src="./script/integer.js"></script>
+  <script src="./script/percentage.js"></script>
 </head>
 <body>
  <div class="container" ng-app="clientsApp" ng-controller='ClientsCtrl'>
@@ -30,7 +31,7 @@
         <td>{{ client.id }}</td>
         <td>{{ client.name }}</td>
         <td>{{ client.age }}</td>
-        <td>{{ percentageOf(client.percentage) | number:0 }} %</td>
+        <td>{{ client.percentage | percentage }}</td>
         <td>
           <a class="btn btn-primary" href="" ng-click='edit(client)'>
             Edit

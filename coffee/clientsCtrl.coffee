@@ -2,8 +2,6 @@ angular
   .module 'clientsApp'
   .controller 'ClientsCtrl', ($scope, Clients) ->
     $scope.clients = []
-    $scope.percentageOf = (percentage) ->
-      percentage * 100
 
     Clients.all().success (data) ->
       $scope.clients = data
